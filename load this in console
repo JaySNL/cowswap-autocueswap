@@ -1,0 +1,86 @@
+// made by https://etherscan.io/address/thepheonix.eth
+// discord JayniusTV#1988
+
+function addJquery(){
+var jq = document.createElement('script');
+jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js";
+document.getElementsByTagName('head')[0].appendChild(jq);
+// ... give time for script to load, then type (or see below for non wait option)
+jQuery.noConflict();
+}
+
+var GasFeeFull = $(".ciyNao:last").text()
+var GasFeeCut = GasFeeFull.substring(3);
+var GasFee = GasFeeCut.slice(0, -1);
+var TokenPriceFull = $(".ciyNao:nth-child(3)").text()
+var TokenPriceCut = TokenPriceFull.substring(3);
+var TokenPrice = parseFloat(TokenPriceCut.slice(0, -1));
+var LowestGas = GasFee;
+var HighestGas = GasFee;
+var TargetGas = 50.00;
+var TargetPrice = 3.25;
+var TimeOut = 20000;
+
+var BuyIt = new Audio('https://www.myinstants.com/media/sounds/cow-moo-sound.mp3');
+
+function GetGasPrice(){
+    GasFeeFull = $(".ciyNao:last").text()
+    GasFeeCut = GasFeeFull.substring(3);
+    GasFee = parseFloat(GasFeeCut.slice(0, -1));
+}
+
+function GetTokenPrice(){
+    TokenPriceFull = $(".ciyNao:nth-child(3)").text()
+	TokenPriceCut = TokenPriceFull.substring(4);
+    TokenPrice = parseFloat(TokenPriceCut.slice(0, -1));
+	//console.warn ("TokenPrice is: $" + TokenPrice);
+}
+
+function HighLow(){
+		if (LowestGas === "undefined") {
+			LowestGas = GasFee;
+			HighestGas = GasFee;
+		};
+		if (GasFee > HighestGas){
+				HighestGas = GasFee;
+		};
+		if (GasFee < LowestGas){
+				LowestGas = GasFee;
+		};
+}
+
+function SetValues(){
+	if(TargetGas == 0){
+		console.warn ("Set Your TargetGas");
+	}
+	if(TargetPrice == 0){
+		console.warn ("Set Your TargetPrice");
+	};
+	if(TargetPrice < TokenPrice){
+		var TooExpensiveToken = true;
+		console.warn ("TokenPrice too high, not swapping for you.");
+	} else {
+		TooExpensiveToken = false;
+	}
+}
+
+setInterval(function(){
+  /// call your function here
+	SetValues();
+    GetGasPrice();
+	HighLow();
+	GetTokenPrice();
+        //$(this).css("color", "blue");
+    if (GasFee <= TargetGas && !TooExpensiveToken) {
+		BuyIt.play();
+    console.warn ("GasFee is lower than $" + TargetGas + " , It's currently: $" + GasFee)
+		$("#swap-button").click()
+		TimeOut = math(Timeout*10);
+		//$("#root").css("visibility","visible");
+    }
+    else {
+		console.warn ("Gas: $" + GasFee + " L/H: $" + LowestGas + "/$" + HighestGas);
+		TimeOut = 50000;
+		//$("#root").css("visibility","hidden");
+    }
+}, TimeOut);

@@ -10,10 +10,10 @@ Copy paste in console. Because CowSwap does not use JQUERY, you need to paste it
 
 # Commands you can change: 
 var **TargetGas** = xx.xx; Set this to the gas fee you want it to initiate BELOW.  
-In console, type: ```TargetGas = [yourvalue]``` I.e ```TargetGas = 50.00```.  
+In console, type: ```TargetGas = [yourvalue]``` I.e ```TargetGas = 50.00```. This will hit Swap as soon as the GasFee is below $50.00  
 
 var TargetPrice = xx.xx; Set this to the MAXIMUM value you want to token to be.  
-In console, type: ```TargetPrice = [yourvalue]```. I.e ```TargetPrice = 4.69```.  
+In console, type: ```TargetPrice = [yourvalue]```. I.e ```TargetPrice = 4.69```. This will only buy the token when it is **below** $4.69  
 
 var TimeOut = 20000; Increase or reduce the time the interval checks for the GasPrice to update.  
 var BuyIt = new Audio('https://www.myinstants.com/media/sounds/cow-moo-sound.mp3'); replace the url with something you want it to play as a sound que.

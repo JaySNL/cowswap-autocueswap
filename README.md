@@ -19,6 +19,7 @@ var TimeOut = 20000; Increase or reduce the time the interval checks for the Gas
 var BuyIt = new Audio('https://www.myinstants.com/media/sounds/cow-moo-sound.mp3'); replace the url with something you want it to play as a sound que.
 
 # Console Debug
+![consoledebug](https://user-images.githubusercontent.com/7669379/148093306-ae765f52-d218-4da7-bd3e-c7a610eb2542.png)  
 Set your console to "Warnings" only. It will print the current, lowest and highest gas prices recorded. If certain settings arent set, it will remind you to do so. It will also alert if certain conditions are met (or aren't. i.e tokenPrice is higher than your TargetPrice).
 
 # Example of Proof Of Concept (older version)

@@ -11,6 +11,7 @@ Copy paste in console. Because CowSwap does not use JQUERY, you need to paste it
 # Commands you can change: 
 var TargetGas = xx.xx; Set this to the gas fee you want it to initiate BELOW.  
 var TargetPrice = xx.xx; Set this to the MAXIMUM value you want to token to be.  
-var TimeOut = 20000; Increase or reduce the time the interval checks for the GasPrice to update.  
+var TimeOut = 20000; Increase or reduce the time the interval checks for the GasPrice to update.
+var BuyIt = new Audio('https://www.myinstants.com/media/sounds/cow-moo-sound.mp3'); replace the url with something you want it to play as a sound que.
 
 Console Debug Set your console to "Warnings" only. It will print the current, lowest and highest gas prices recorded. If certain settings arent set, it will remind you to do so. It will also alert if certain conditions are met (or aren't. i.e tokenPrice is higher than your TargetPrice).
